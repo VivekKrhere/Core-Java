@@ -1,0 +1,16 @@
+public class RotateNumber {
+    public static void main(String[] args) {
+        int num = 123456;
+        int k = 2;
+        int rotatedNum = rotate(num, k);
+        System.out.println(rotatedNum);
+    }
+
+    public static int rotate(int num, int k) {
+        int digits = (int) (Math.log10(num) + 1);
+        k = k % digits;
+        int divisor = (int) Math.pow(10, k);
+        int rotatedNum = num % divisor * (int) Math.pow(10, digits - k) + num / divisor;
+        return rotatedNum;
+    }
+}
